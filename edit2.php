@@ -7,7 +7,7 @@
 $id = $_GET['id'];
 
 // Fetch just that one student. "WHERE id=$id" limits the result to the matching row.
-$result = $conn->query("SELECT * FROM users WHERE id=$id");
+$result = $conn->query("SELECT * FROM movies WHERE id=$id");
 
 // fetch_assoc() reads the single row we found into $row (values read by column name).
 $row = $result->fetch_assoc();
@@ -39,7 +39,7 @@ $row = $result->fetch_assoc();
 
 <div class="section-header add-user">
   <div>
-    <h1>Edit User</h1>
+    <h1>Edit Movie</h1>
   </div>
 </div>
 
@@ -56,36 +56,36 @@ $row = $result->fetch_assoc();
 <div class="form-row">
 
   <div class="form-group">
-    <label>Username</label>
-    <input type="text" name="username" value="<?php echo $row['username']; ?>">
+    <label>Hall</label>
+    <input type="text" name="hall" value="<?php echo $row['hall']; ?>">
   </div>
 
   <div class="form-group">
-    <label>Password</label>
-    <input type="text" name="userPass" value="<?php echo $row['userPass']; ?>">
+    <label>Movie Name</label>
+    <input type="text" name="movieName" value="<?php echo $row['movieName']; ?>">
   </div>
 
 </div>
 
   <div class="form-group">
-    <label>Name</label>
-    <input type="text" name="name" value="<?php echo $row['name']; ?>">
+    <label>Genre</label>
+    <input type="text" name="genre" value="<?php echo $row['genre']; ?>">
   </div>
 
   <div class="form-group">
-    <label>Phone</label>
-    <input type="text" name="phone" value="<?php echo $row['phone']; ?>">
+    <label>Runtime</label>
+    <input type="text" name="runtime" value="<?php echo $row['runtime']; ?>">
   </div>
 
   <div class="form-group">
-    <label>Email</label>
-    <input type="email" name="email" value="<?php echo $row['email']; ?>">
+    <label>Director</label>
+    <input type="text" name="director" value="<?php echo $row['director']; ?>">
   </div>
 
   <!-- The submit button. Clicking it sends the form. name="save" lets PHP tell that THIS button was pressed. -->
 
   <div class="form-action">
-    <a href="index.php" class="btn-cancel">Cancel</a>
+    <a href="movies.php" class="btn-cancel">Cancel</a>
       <input type="submit" name="update" value="Update" class="btn-submit">
   </div>
 </form>
@@ -95,18 +95,18 @@ $row = $result->fetch_assoc();
 // IF the Update button was clicked (its name is "update")...
 if(isset($_POST['update'])){
   // ...read the new values the user typed.
-  $username   = $_POST['username'];
-  $userPass = $_POST['userPass'];
-  $name = $_POST['name'];
-  $phone  = $_POST['phone'];
-  $email = $_POST['email'];
+  $hall   = $_POST['hall'];
+  $movieName = $_POST['movieName'];
+  $genre = $_POST['genre'];
+  $runtime  = $_POST['runtime'];
+  $director = $_POST['director'];
 
   // UPDATE ... SET ... WHERE id=$id  changes the existing row — only the one with this id.
   // WARNING: without the WHERE, it would overwrite EVERY student, so the WHERE matters a lot!
-  $conn->query("UPDATE users SET username='$username', name='$name', userPass='$userPass', email='$email', phone='$phone' WHERE id=$id");
+  $conn->query("UPDATE movies SET hall='$hall', movieName='$movieName', genre='$genre', runtime='$runtime', director='$director' WHERE id=$id");
 
   // Redirect back to the list to see the updated student.
-  header("Location: index.php");
+  header("Location: movies.php");
 }
 ?>
 

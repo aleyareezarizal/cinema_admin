@@ -11,14 +11,15 @@ if (isset ($_GET['confirm'])){
 
 // "DELETE FROM students WHERE id=$id" removes ONLY the row with this id.
 // WARNING: leaving out the WHERE would delete every student in the table!
-$conn->query("DELETE FROM users WHERE id=$id");
+$conn->query("DELETE FROM movies WHERE id=$id");
 
 // header("Location: ...") redirects the browser back to the list page.
-header("Location: index.php");
+header("Location: movies.php");
 exit ();
 }
 
 ?>
+
 <!DOCTYPE html>
 <html>
   <head>
@@ -45,18 +46,18 @@ exit ();
 <main class="main-content">
     <div class="section-header add-user">
   <div>
-    <h1>Delete User</h1>
+    <h1>Delete Movie</h1>
   </div>
 </div>
 
 <div class="form-container">
 
-    <h1>Are you sure you want delete to user data?</h1>
+    <h1>Are you sure you want to delete movie data?</h1>
     <p>This action cannot be undone. Please double confirm before deleting.</p>
 
 <div class="form-action">
-    <a href="index.php" class="btn-cancel">Cancel</a>
-    <a href="delete.php?id=<?php echo $id; ?>&confirm=1" class="btn-submit">Delete</a>
+    <a href="movies.php" class="btn-cancel">Cancel</a>
+    <a href="delete2.php?id=<?php echo $id; ?>&confirm=1" class="btn-submit">Delete</a>
 </div>
   </div>
 

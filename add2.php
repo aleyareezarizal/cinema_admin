@@ -30,7 +30,7 @@
 
 <div class="section-header add-user">
   <div>
-    <h1>Add New User</h1>
+    <h1>Add Movies</h1>
   </div>
 </div>
 
@@ -47,36 +47,40 @@
 <div class="form-row">
 
   <div class="form-group">
-    <label>Username</label>
-    <input type="text" name="username" placeholder="Enter username" required>
+    <label>Hall</label>
+    <input type="text" name="hall" placeholder="Enter hall number" required>
   </div>
 
   <div class="form-group">
-    <label>Password</label>
-    <input type="text" name="userPass" placeholder="Enter password" required>
+    <label>Movie Name</label>
+    <input type="text" name="movieName" placeholder="Enter movie name" required>
+  </div>
+
+</div>
+
+<div class="form-row">
+
+  <div class="form-group">
+    <label>Genre</label>
+    <input type="text" name="genre" placeholder="Enter genre" required>
+  </div>
+
+  <div class="form-group">
+    <label>Runtime</label>
+    <input type="text" name="runtime" placeholder="Enter Runtime" required>
   </div>
 
 </div>
 
   <div class="form-group">
-    <label>Name</label>
-    <input type="text" name="name" placeholder="Enter name" required>
-  </div>
-
-  <div class="form-group">
-    <label>Phone</label>
-    <input type="text" name="phone" placeholder="Enter phone number" required>
-  </div>
-
-  <div class="form-group">
-    <label>Email</label>
-    <input type="email" name="email" placeholder="Enter email address" required>
+    <label>Director</label>
+    <input type="text" name="director" placeholder="Enter director" required>
   </div>
 
   <!-- The submit button. Clicking it sends the form. name="save" lets PHP tell that THIS button was pressed. -->
 
   <div class="form-action">
-    <a href="index.php" class="btn-cancel">Cancel</a>
+    <a href="movies.php" class="btn-cancel">Cancel</a>
       <input type="submit" name="save" value="Save" class="btn-submit">
   </div>
 </form>
@@ -88,19 +92,19 @@
 // So this line means: "IF the Save button was clicked, run the code inside { }."
 if(isset($_POST['save'])){
   // Read each value the user typed. The key inside [ ] matches the input's name="...".
-  $username = $_POST['username'];
-  $userPass = $_POST['userPass'];
-  $name   = $_POST['name'];
-  $phone  = $_POST['phone'];
-  $email  = $_POST['email'];
+  $hall = $_POST['hall'];
+  $movieName = $_POST['movieName'];
+  $genre   = $_POST['genre'];
+  $runtime  = $_POST['runtime'];
+  $director  = $_POST['director'];
 
   // Send an INSERT command to add a new row to the users table.
   // "INSERT INTO table (columns) VALUES (...)" is the SQL for creating new data.
-  $conn->query("INSERT INTO users (username,userPass,name,phone,email) VALUES ('$username','$userPass','$name','$phone','$email')");
+  $conn->query("INSERT INTO movies (hall, movieName, genre, runtime, director) VALUES ('$hall','$movieName','$genre','$runtime','$director')");
 
   // header("Location: ...") tells the browser to redirect to another page.
   // After saving, we send the user back to the list so they can see the new student.
-  header("Location: index.php");
+  header("Location: movies.php");
 }
 ?>
 

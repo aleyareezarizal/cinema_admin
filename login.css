@@ -1,0 +1,108 @@
+/* css for login page only */
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+.login-body {
+    min-height: 100vh;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #c41a1a;
+    font-family: Arial, Helvetica, sans-serif;
+    position: relative;
+    overflow: hidden;
+}
+
+.login-body::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url("images/cinema.jpg");
+    background-size: cover;
+    background-position: center;
+    opacity: 0.25;
+    z-index: 0;
+}
+
+.login-container {
+    background-color: #fffefd;
+    width: 600px;
+    padding: 35px 50px;
+    align-items: center;
+    border-radius: 15px;
+    box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.1);
+    position: relative;
+    z-index: 1;
+}
+
+.login-container h1 {
+    text-align: center;
+    color: #171212;
+    font-size: 36px;
+    margin-bottom: 25px;
+    margin-top: 10px;
+}
+
+.login-container label {
+    width: 70%;
+    color: #171212;
+    text-align: left;
+    font-size: 18px;
+    font-weight: bold;
+    margin: 0 auto 10px auto;
+    display: block;
+}
+
+.login-container input {
+    width: 77%;
+    padding: 10px;
+    margin: 0 auto 20px auto;
+    background-color: #eeeeee;
+    color:#2c2c2b;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+    display: block;
+}
+
+.login-container input::placeholder {
+    color: #5a5a5a;
+}
+
+.login-container input:focus {
+    outline: none;
+    border-color: #c41a1a;
+}
+
+.login-container button {
+    width: 30%;
+    padding: 12px;
+    background-color: #c41a1a;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    margin: 30px auto 15px auto;
+    font-size: 18px;
+    font-weight: bold;
+    cursor: pointer;
+    display: block;
+}
+
+.login-container button:hover {
+    background-color: #9e1111;
+}
+
+.error-message {
+    color: red;
+    font-size: 16px;
+    margin-bottom: 20px;
+    text-align: center;
+}

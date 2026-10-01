@@ -32,12 +32,12 @@
 
 <div class="section-header">
   <div>
-    <h1>Users List</h1>
-  <p>Manage registered users in database.</p>
+    <h1>Movies List</h1>
+  <p>Manage movie list in database.</p>
   </div>
 
 <!-- A link (the <a> "anchor" tag). Clicking it opens the add-user page. -->
-<a href="add.php" class="btn-add">+&nbsp;&nbsp;&nbsp;Add New User</a>
+<a href="add2.php" class="btn-add">+&nbsp;&nbsp;&nbsp;Add Movies</a>
 
 </div>
 
@@ -47,11 +47,11 @@
 <tr>
   <!-- <tr> = table row.  <th> = a bold header cell (table heading). -->
   <th>ID</th>
-  <th>Username</th>
-  <th>Password</th>
-  <th>Name</th>
-  <th>Phone</th>
-  <th>Email</th>
+  <th>Hall</th>
+  <th>Movie Name</th>
+  <th>Genre</th>
+  <th>Runtime</th>
+  <th>Director</th>
   <th width="200">Actions</th>
 </tr>
 
@@ -59,7 +59,7 @@
 <?php
 // $conn->query(...) sends an SQL command to the database and returns the result.
 // "SELECT * FROM users" means: fetch ALL columns (*) of every row in the "users" table.
-$result = $conn->query("SELECT * FROM users");
+$result = $conn->query("SELECT * FROM movies");
 
 // A "while" loop repeats its block once for each row that comes back.
 // $result->fetch_assoc() returns the NEXT row as an "associative array"
@@ -70,14 +70,14 @@ while($row = $result->fetch_assoc()) {
   // <td> = a normal table cell (table data).
   echo "<tr>
     <td>".$row['id']."</td>
-    <td>".$row['username']."</td>
-    <td>".$row['userPass']."</td>
-    <td>".$row['name']."</td>
-    <td>".$row['phone']."</td>
-    <td>".$row['email']."</td>
+    <td>".$row['hall']."</td>
+    <td>".$row['movieName']."</td>
+    <td>".$row['genre']."</td>
+    <td>".$row['runtime']."</td>
+    <td>".$row['director']."</td>
     <td>
-      <a href='edit.php?id=".$row['id']."' class='btn-edit'>Edit</a> |
-      <a href='delete.php?id=".$row['id']."' class='btn-delete'>Delete</a>
+      <a href='edit2.php?id=".$row['id']."' class='btn-edit'>Edit</a> |
+      <a href='delete2.php?id=".$row['id']."' class='btn-delete'>Delete</a>
     </td>
   </tr>";
   // Note: edit.php?id=...  and  delete.php?id=...  put the student's id into the
